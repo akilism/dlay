@@ -14,7 +14,11 @@ const article = { type: 'article-layout', data: { title: 'Please, for the Love o
 const footer = { type: 'footer-layout' };
 const header = { type: 'header-layout', data: { title: 'Noisey' }};
 
-article.layout = { children: [ deepClone(header), deepClone(article), deepClone(footer) ] };
+const babyArticle = deepClone(article);
+
+
+article.layout = { children: [ deepClone(header), babyArticle, deepClone(footer) ] };
+babyArticle.layout = { children: [ deepClone(header), deepClone(babyArticle), deepClone(footer) ] };
 
 export default {
   data() {
