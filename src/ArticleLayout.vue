@@ -1,12 +1,12 @@
 <template>
-  <div>
-    <!-- <topic-display type="article-header" :topics="topics"></topic-display> -->
+  <article>
     <h1>{{ title }}</h1>
+    <!-- <topic-display type="article-header" :topics="topics"></topic-display> -->
     <!-- <contributor-display type="article-byline" :contributor="contributor"></contributor-display> -->
     <div style="margin-left: 30px; background-color: rgba(0,0,0,0.35); padding: 20px">
       <layout-manager :layout="layout"></layout-manager>
     </div>
-  </div>
+  </article>
 </template>
 
 <script>
@@ -27,10 +27,6 @@ const articleLayout = _.compose(itemLens, layoutLens);
 const articleTopics = _.compose(itemLens, dataLens, topicsLens);
 const articleTitle = _.compose(itemLens, dataLens, titleLens);
 
-const article = { type: 'article-layout', data: { title: 'Please, for the Love of God, Stop with All These Shitty Mashups' }};
-const footer = { type: 'footer-layout' };
-const header = { type: 'header-layout', data: { title: 'Noisey' }};
-
 export default {
   components: {
     'layout-manager': LayoutManager
@@ -40,7 +36,7 @@ export default {
       return L.view(articleContributor, this);
     },
     layout() {
-      console.log('layout', L.view(articleLayout, this));
+      // console.log('layout', L.view(articleLayout, this));
       return L.view(articleLayout, this) || [];
     },
     title() {
@@ -51,9 +47,7 @@ export default {
     }
   },
   data() {
-    return {
-      // layout: { children: [header, article, footer] }
-    };
+    return {};
   },
   props: [ 'item' ],
   ready() {
