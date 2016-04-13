@@ -12,7 +12,6 @@
 <script>
 import _ from 'ramda';
 import L from 'ramda-lens';
-import LayoutManager from './LayoutManager.vue';
 
 const childrenLens = _.lensProp('children');
 const contributorLens = _.lensProp('contributor');
@@ -28,9 +27,6 @@ const articleTopics = _.compose(itemLens, dataLens, topicsLens);
 const articleTitle = _.compose(itemLens, dataLens, titleLens);
 
 export default {
-  components: {
-    'layout-manager': LayoutManager
-  },
   computed: {
     contributor() {
       return L.view(articleContributor, this);
@@ -49,6 +45,7 @@ export default {
   data() {
     return {};
   },
+  name: 'article-layout',
   props: [ 'item' ],
   ready() {
     // console.log('article');

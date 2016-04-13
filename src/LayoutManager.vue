@@ -11,18 +11,9 @@
 </template>
 
 <script>
-import ArticleLayout from './ArticleLayout.vue';
-import FooterLayout from './FooterLayout.vue';
-import HeaderLayout from './HeaderLayout.vue';
-
 export default {
   ready() {
     console.log('LayoutManager:', this.layout.type || this.layout.children);
-  },
-  components: {
-    'article-layout': ArticleLayout,
-    'footer-layout': FooterLayout,
-    'header-layout': HeaderLayout
   },
   data() {
     return {

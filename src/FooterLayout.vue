@@ -1,5 +1,7 @@
 <template>
-  <h1>Footer</h1>
+  <div v-el="fl">
+    <h1>Footer</h1>
+  </div>
 </template>
 
 <script>
